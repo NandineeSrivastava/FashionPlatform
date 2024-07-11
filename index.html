@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hidden { display: none; }
+        .visible { display: block; }
+        nav, header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin: 0 1rem; }
+        .nav-icons img { width: 24px; height: 24px; margin-left: 1rem; }
+        .banner, .zgames-buttons, .category, .outfit-feed, .leaderboard { text-align: center; margin: 2rem 0; }
+        .zgames-buttons button, .category .item, .outfit-card, .challenge-card { margin: 0.5rem; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Myntra-Logo.png" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="navigateTo('home-screen')">Home</a></li>
+                <li>
+                    <a href="#">ZGames</a>
+                    <div class="dropdown">
+                        <img src="Zgames.png" alt="ZGames Image">
+                        <h3>Explore ZGames</h3>
+                        <p>Discover exciting fashion challenges and games.</p>
+                        <button onclick="navigateTo('zgames')">Explore ZGames</button>
+                    </div>
+                </li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Home & Living</a></li>
+                <li><a href="#">Beauty</a></li>
+                <li><a href="#">Studio</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#"><img src="free-profile-3484746-2917913.webp" alt="Profile"></a>
+                <a href="#"><img src="whishlisticon.png" alt="Wishlist"></a>
+                <a href="#"><img src="bagicon.png" alt="Bag"></a>
+            </div>
+        </nav>
+        <div id="zgames-dropdown" class="dropdown-content hidden">
+            <button onclick="navigateTo('personal-style-challenges')">Personal Style Challenges</button>
+            <button onclick="navigateTo('fashion-games')">Fashion Games</button>
+            <button onclick="navigateTo('gamified-trend-exploration')">Gamified Exploration</button>
+        </div>
+    </header>
+
+    <!-- Home Screen -->
+    <section id="home-screen" class="visible">
+        <div class="banner">
+            <h1>Welcome to Fashion Platform</h1>
+            <p>Explore the latest trends and style yourself!</p>
+        </div>
+    </section>
+
+    <!-- ZGames Overview -->
+    <section id="zgames" class="hidden">
+        <button onclick="navigateTo('home-screen')">Home</button>
+        <h1>ZGames</h1>
+        <div class="zgames-buttons">
+            <button onclick="navigateTo('personal-style-challenges')">Personal Style Challenges</button>
+            <button onclick="navigateTo('fashion-games')">Fashion Games</button>
+            <button onclick="navigateTo('gamified-trend-exploration')">Gamified Exploration</button>
+        </div>
+    </section>
+
+    <!-- Personal Style Challenges -->
+    <section id="personal-style-challenges" class="hidden">
+        <button onclick="navigateTo('zgames')">Back to ZGames</button>
+        <h1>Personal Style Challenges</h1>
+        <div class="challenge-card" onclick="navigateTo('challenge-details')">
+            <h2>Beach Day</h2>
+            <p>Design your perfect beach outfit</p>
+        </div>
+        <div class="challenge-card" onclick="navigateTo('challenge-details')">
+            <h2>Winter Wonderland</h2>
+            <p>Create a stylish winter look</p>
+        </div>
+    </section>
+
+    <!-- Challenge Details -->
+    <section id="challenge-details" class="hidden">
+        <h1>Beach Day Challenge</h1>
+        <p>Design your perfect beach outfit</p>
+        <ul>
+            <li>Theme description</li>
+            <li>Rules and guidelines</li>
+            <li>Example outfits</li>
+            <li>Start and end dates</li>
+        </ul>
+        <button onclick="navigateTo('create-outfit')">Join Challenge</button>
+        <button onclick="navigateTo('personal-style-challenges')">Back to Challenges Overview</button>
+    </section>
+
+    <!-- Create Outfit -->
+    <section id="create-outfit" class="hidden">
+        <h1>Create Your Outfit</h1>
+        <div class="wardrobe">
+            <div class="category">
+                <h2>Tops</h2>
+                <div class="item">Top 1</div>
+                <div class="item">Top 2</div>
+            </div>
+            <div class="category">
+                <h2>Bottoms</h2>
+                <div class="item">Bottom 1</div>
+                <div class="item">Bottom 2</div>
+            </div>
+            <div class="category">
+                <h2>Shoes</h2>
+                <div class="item">Shoes 1</div>
+                <div class="item">Shoes 2</div>
+            </div>
+            <div class="category">
+                <h2>Accessories</h2>
+                <div class="item">Accessory 1</div>
+                <div class="item">Accessory 2</div>
+            </div>
+        </div>
+        <button onclick="navigateTo('submit-outfit')">Submit Outfit</button>
+        <button onclick="navigateTo('challenge-details')">Back to Challenge Details</button>
+    </section>
+
+    <!-- Submit Outfit -->
+    <section id="submit-outfit" class="hidden">
+        <h1>Review and Submit Your Outfit</h1>
+        <p>Final Look</p>
+        <textarea placeholder="Write a brief description or style note"></textarea>
+        <button onclick="navigateTo('community-voting')">Submit</button>
+        <button onclick="navigateTo('create-outfit')">Back to Create Outfit</button>
+    </section>
+
+    <!-- Community Voting -->
+    <section id="community-voting" class="hidden">
+        <h1>Vote on Outfits</h1>
+        <div class="outfit-feed">
+            <div class="outfit-card">
+                <p>Outfit 1</p>
+                <button>👍</button>
+                <button>⭐</button>
+            </div>
+            <div class="outfit-card">
+                <p>Outfit 2</p>
+                <button>👍</button>
+                <button>⭐</button>
+            </div>
+        </div>
+        <button onclick="navigateTo('home-screen')">Back to Home</button>
+    </section>
+
+    <!-- Leaderboard and Rewards -->
+    <section id="leaderboard-rewards" class="hidden">
+        <h1>Leaderboard and Rewards</h1>
+        <div class="leaderboard">
+            <p>1. User A</p>
+            <p>2. User B</p>
+            <p>3. User C</p>
+        </div>
+        <p>Rewards: Discounts, Badges</p>
+        <button onclick="navigateTo('profile-page')">View Profile</button>
+        <button onclick="navigateTo('home-screen')">Back to Home</button>
+    </section>
+
+    <!-- Profile Page -->
+    <section id="profile-page" class="hidden">
+        <h1>User Profile</h1>
+        <p>Name: User A</p>
+        <p>Submitted Challenges: 5</p>
+        <p>Points: 200</p>
+        <p>Rewards: Discount Coupons</p>
+        <button onclick="navigateTo('home-screen')">Back to Home</button>
+    </section>
+
+    <!-- Fashion Games -->
+    <section id="fashion-games" class="hidden">
+        <button onclick="navigateTo('zgames')">Back to ZGames</button>
+        <h1>Fashion Games</h1>
+        <div class="question">
+            <h2>Question 1</h2>
+            <div class="answer-options">
+                <button>Option 1</button>
+                <button>Option 2</button>
+                <button>Option 3</button>
+            </div>
+        </div>
+        <div class="question">
+            <h2>Question 2</h2>
+            <div class="answer-options">
+                <button>Option 1</button>
+                <button>Option 2</button>
+                <button>Option 3</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gamified Trend Exploration -->
+    <section id="gamified-trend-exploration" class="hidden">
+        <button onclick="navigateTo('zgames')">Back to ZGames</button>
+        <h1>Gamified Trend Exploration</h1>
+        <p>Explore fashion trends through engaging activities!</p>
+        <button onclick="navigateTo('fashion-show-overview')">Virtual Fashion Show</button>
+        <button onclick="navigateTo('dress-up-game')">Dress Up Game</button>
+    </section>
+
+    <!-- Fashion Show Overview -->
+    <section id="fashion-show-overview" class="hidden">
+        <button onclick="navigateTo('gamified-trend-exploration')">Back</button>
+        <h1>Current Fashion Show</h1>
+        <p>Theme: Summer Vibes</p>
+        <h2>Top Entries:</h2>
+        <div class="top-entry">Outfit 1</div>
+        <div class="top-entry">Outfit 2</div>
+        <div class="top-entry">Outfit 3</div>
+        <button onclick="navigateTo('enter-fashion-show')">Enter Fashion Show</button>
+        <button onclick="navigateTo('vote-on-outfits')">Vote on Outfits</button>
+    </section>
+
+    <!-- Enter Fashion Show -->
+    <section id="enter-fashion-show" class="hidden">
+        <button onclick="navigateTo('fashion-show-overview')">Back</button>
+        <h1>Enter Fashion Show</h1>
+        <form id="upload-form">
+            <input type="file" id="outfit-upload" required>
+            <button type="submit">Upload</button>
+        </form>
+    </section>
+
+    <!-- Voting on Outfits -->
+    <section id="vote-on-outfits" class="hidden">
+        <button onclick="navigateTo('fashion-show-overview')">Back</button>
+        <h1>Vote on Outfits</h1>
+        <div class="outfit-card">
+            <p>Outfit 1</p>
+            <button class="upvote">Upvote</button>
+            <button class="downvote">Downvote</button>
+        </div>
+        <div class="outfit-card">
+            <p>Outfit 2</p>
+            <button class="upvote">Upvote</button>
+            <button class="downvote">Downvote</button>
+        </div>
+        <div class="outfit-card">
+            <p>Outfit 3</p>
+            <button class="upvote">Upvote</button>
+            <button class="downvote">Downvote</button>
+        </div>
+    </section>
+
+    <!-- Dress Up Game -->
+    <section id="dress-up-game" class="hidden">
+        <button onclick="navigateTo('gamified-trend-exploration')">Back</button>
+        <h1>Dress Up Game</h1>
+        <div class="wardrobe">
+            <div class="category">
+                <h2>Tops</h2>
+                <div class="item">Top 1</div>
+                <div class="item">Top 2</div>
+            </div>
+            <div class="category">
+                <h2>Bottoms</h2>
+                <div class="item">Bottom 1</div>
+                <div class="item">Bottom 2</div>
+            </div>
+            <div class="category">
+                <h2>Shoes</h2>
+                <div class="item">Shoes 1</div>
+                <div class="item">Shoes 2</div>
+            </div>
+            <div class="category">
+                <h2>Accessories</h2>
+                <div class="item">Accessory 1</div>
+                <div class="item">Accessory 2</div>
+            </div>
+        </div>
+    </section>
+    <script src="scripts.js"></script>
+</body>
+</html>
